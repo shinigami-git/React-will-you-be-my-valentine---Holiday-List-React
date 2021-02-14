@@ -38,8 +38,14 @@ class App extends Component {
   }
 
   render() {
+    let filteredIndianCity=this.cityList.filter((city,index)=>(city.country=='India'));
+    let filteredNonIndianCity=this.cityList.filter((city)=>(city.country !=='India'));
+    let updatedList = [...filteredIndianCity, ...filteredNonIndianCity];
     return (
       <div id="main">
+        <ol>
+            {updatedList.map((city,index)=> <li key={`location${index+1}`}>{city.name}</li>)}
+        </ol>
         {/* Do not remove the main div */}
       </div>
     )
